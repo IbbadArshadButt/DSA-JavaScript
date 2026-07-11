@@ -1,3 +1,5 @@
+// This is the implementation of a Queue data structure with Linear time-complexity for enqueue and dequeue operations.
+
 class Queue {
     constructor() {
         this.items = [];
