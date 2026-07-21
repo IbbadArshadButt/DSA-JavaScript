@@ -18,6 +18,17 @@ class LinkedList {
     getSize() {
         return this.size;
     }
+
+    prepend(value) {
+        const newNode = new Node(value);
+        if (this.isEmpty()) {
+            this.head = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.size++;
+    }
 }
 
 const list = new LinkedList();
