@@ -1,8 +1,8 @@
-const LinkedList = require('./LinkedListWithTail');
+const LinkedListWithTail = require('./LinkedListWithTail');
 
-class LinkedListStack {
+class LinkedListQueue {
     constructor() {
-        this.list = new LinkedList();
+        this.list = new LinkedListWithTail();
     }
 
     enqueue(value){
@@ -22,10 +22,23 @@ class LinkedListStack {
     }
 
     getSize() {
-        return this.list.getSize
+        return this.list.getSize();
     }
 
     print() {
         return this.list.print();
     }
 }
+
+const queue = new LinkedListQueue();
+console.log(queue.isEmpty());
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+
+console.log(queue.getSize());
+queue.print();
+
+console.log(queue.dequeue());
+console.log(queue.peek());
