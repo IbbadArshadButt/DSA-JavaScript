@@ -20,24 +20,34 @@ class LinkedListWithTail {
         return this.size;
     }
 
-    // Time Complexity: O(1)
     prepend(value) {
-       
+       const newNode = new Node(value);
+       if(this.isEmpty()) {
+        this.head = newNode;
+        this.tail = newNode;
+       } else {
+        newNode.next = head;
+        this.head = newNode;
+       }
+       this.size++;
     }
 
-    // Time Complexity: O(n)
     append(value) {
-      
+      const newNode = new Node(value);
+      if(this.isEmpty()) {
+        this.head = newNode;
+        this.tail = newNode;
+       } else {
+        this.tail.next = newNode;
+        this.tail = newNode;
+       } 
+       this.size++;
     }
 
-    insert(value, index) {
-       
+    removeFromFront(index) {
     }
 
-    removeFrom(index) {
-    }
-
-    removeValue(value) {
+    removeFromEnd(index) {
       
     }
 
@@ -56,15 +66,14 @@ class LinkedListWithTail {
     }
 }
 
-const list = new LinkedList();
+const list = new LinkedListWithTail();
 console.log('List is empty:', list.isEmpty()); // true
 console.log('List size:', list.getSize()); // 0
 
-list.insert(10, 0);
-list.insert(20, 1);
-list.insert(30, 2);
-list.insert(40, 3);
-list.print();
+list.prepend(10);
+list.append(20);
+list.append(30);
+list.append(40);
 
-list.reverse();
 list.print(); // 40 30 20 10
+list.getSize();
