@@ -26,7 +26,7 @@ class LinkedListWithTail {
         this.head = newNode;
         this.tail = newNode;
        } else {
-        newNode.next = head;
+        newNode.next = this.head;
         this.head = newNode;
        }
        this.size++;
@@ -44,11 +44,34 @@ class LinkedListWithTail {
        this.size++;
     }
 
-    removeFromFront(index) {
+    removeFromFront() {
+        if(this.isEmpty()) {
+            return null
+        }
+        const value = this.head.value;
+        this.head = this.head.next;
+        this.size--;
+        return value;
     }
 
-    removeFromEnd(index) {
-      
+    removeFromEnd() {
+        if(this.isEmpty()) {
+            return null
+        }
+        const value = this.tail.value;
+        if(this.size===1){
+            this.head = null;
+            this.tail = null;
+        } else {
+            let prev = this.head;
+            while(prev.next != this.tail) {
+                prev = prev.next;
+            }
+            prev.next = null;
+            this.tail = prev;
+        }
+        this.size--;
+        return value;
     }
 
     print() {
@@ -70,10 +93,16 @@ const list = new LinkedListWithTail();
 console.log('List is empty:', list.isEmpty()); // true
 console.log('List size:', list.getSize()); // 0
 
-list.prepend(10);
 list.append(20);
 list.append(30);
 list.append(40);
+list.prepend(10);
+
+list.print(); // 40 30 20 10
+list.getSize();
+
+list.removeFromFront();
+list.removeFromEnd();
 
 list.print(); // 40 30 20 10
 list.getSize();
