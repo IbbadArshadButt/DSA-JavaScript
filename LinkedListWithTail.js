@@ -89,20 +89,22 @@ class LinkedListWithTail {
     }
 }
 
-const list = new LinkedListWithTail();
-console.log('List is empty:', list.isEmpty()); // true
-console.log('List size:', list.getSize()); // 0
+module.exports = LinkedListWithTail
 
-list.append(20);
-list.append(30);
-list.append(40);
-list.prepend(10);
+// const list = new LinkedListWithTail();
+// console.log('List is empty:', list.isEmpty()); // true
+// console.log('List size:', list.getSize()); // 0
 
-list.print(); // 40 30 20 10
-list.getSize();
+// list.append(20);
+// list.append(30);
+// list.append(40);
+// list.prepend(10);
 
-list.removeFromFront();
-list.removeFromEnd();
+// list.print(); // 40 30 20 10
+// list.getSize();
 
-list.print(); // 40 30 20 10
-list.getSize();
+// list.removeFromFront();
+// list.removeFromEnd();
+
+// list.print(); // 40 30 20 10
+// list.getSize();
