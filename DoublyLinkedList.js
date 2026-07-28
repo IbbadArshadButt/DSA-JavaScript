@@ -21,7 +21,7 @@ class DoublyLinkedList {
         return this.size;
     }
 
-    prepend() {
+    prepend(value) {
         const newNode = new Node(value);
         if(this.isEmpty()) {
             this.head = newNode;
@@ -34,7 +34,7 @@ class DoublyLinkedList {
         this.size++;
     }
 
-    append() {
+    append(value) {
         const newNode = new Node(value);
         if(this.isEmpty()) {
             this.head = newNode;
@@ -48,10 +48,66 @@ class DoublyLinkedList {
     }
 
     removeFromFront() {
-
+        this.head = this.head.next;
+        this.size--;
     }
 
     removeFromEnd() {
+        if(this.size === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+        this.size--;
+    }
+
+    printForward() {
+        if(this.isEmpty()) {
+            console.log('List is Empty');
+        } else {
+            let curr = this.head;
+            let listValues = '';
+            for(let i=0; i<this.size; i++) {
+                listValues+= curr.value + ' ';
+                curr = curr.next;
+            }
+            console.log(listValues);
+        }
 
     }
+
+    printReverse() {
+        if(this.isEmpty()) {
+            console.log('List is Empty');
+        } else {
+            let curr = this.tail;
+            let listValues = '';
+            for(let i=this.size; i>0; i--) {
+                listValues+= curr.value + ' ';
+                curr = curr.prev;
+            }
+            console.log(listValues);
+        }
+
 }
+}
+
+const list = new DoublyLinkedList();
+console.log('List is empty:', list.isEmpty()); // true
+console.log('List size:', list.getSize()); // 0
+
+list.append(10);
+list.append(20);
+list.append(30);
+list.prepend(40);
+
+list.printForward();
+list.printReverse();
+
+list.removeFromFront();
+list.printForward();
+list.removeFromEnd();
+
+list.printForward();
