@@ -1,0 +1,25 @@
+class HashTable {
+    constructor(size) {
+        this.table = new HashTable(size);
+        this.size = size
+    }
+
+    hash(key){
+        let hash = 0;
+        for( let i=0; i<key.length; i++){
+            hash += key.charCodeAt(i)
+        }
+        return hash % this.size
+    }
+
+    set(key, value) {
+        
+    }
+
+    get() {
+        
+    }
+}
+
+
+const table = new Hashtable(20);
