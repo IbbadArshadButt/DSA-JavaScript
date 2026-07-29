@@ -1,6 +1,6 @@
 class HashTable {
     constructor(size) {
-        this.table = new HashTable(size);
+        this.table = new Array(size);
         this.size = size
     }
 
@@ -27,8 +27,23 @@ class HashTable {
         this.table[index] = undefined;
     }
 
-    
+    display() {
+        for(let i=0; i<this.table.length; i++) {
+            if(this.table[i]) {
+                console.log(i, this.table[i]);
+            }
+        }
+    }
 }
 
 
-const table = new Hashtable(20);
+const table = new HashTable(20);
+
+table.set("name","Ibad");
+table.set("age",22);
+table.display();
+
+console.log(table.get("name"));
+
+table.remove("name");
+table.display();
