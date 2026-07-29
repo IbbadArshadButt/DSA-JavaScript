@@ -13,11 +13,13 @@ class HashTable {
     }
 
     set(key, value) {
-        
+        const index = this.hash(key);
+        this.table[index] = value;
     }
 
-    get() {
-        
+    get(key) {
+        const index = this.hash(key);
+        return this.table[index];
     }
 }
 
